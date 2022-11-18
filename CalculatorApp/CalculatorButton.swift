@@ -12,12 +12,19 @@ struct CalculatorButton: View {
     var color: Color
     
     var body: some View {
-        Button(action: {}, label: {
+        Button(action: {
+            // Inform model of button press
+        }, label: {
             ZStack {
                 Circle()
-                    .fill(color)
+                  .fill(color)
+                
+                Text(label)
+                    .font(.title)
             }
         })
+        // White color text for the button
+        .accentColor(.white)
     }
 }
 
