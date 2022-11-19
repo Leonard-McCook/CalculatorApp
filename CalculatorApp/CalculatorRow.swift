@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-let colummCount = 4
+let columnCount = 4
 
 struct CalculatorRow: View {
     var labels = ["", "", "", ""]
@@ -18,7 +18,7 @@ struct CalculatorRow: View {
         
         HStack(spacing: 10) {
             // Select from the labels and colors
-            ForEach(0..<columnCount) { index in
+            ForEach(0..<columnCount, id: \.self) { index in
                 CalculatorButton(label:
                     labels[index], color:
                     colors[index])
