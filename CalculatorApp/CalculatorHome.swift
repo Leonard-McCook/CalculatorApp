@@ -29,12 +29,22 @@ struct CalculatorHome: View {
             // Display the rows of buttons with specified labels
             VStack(spacing: 10) {
                 CalculatorRow(labels: ["CE", "",
-                    "", String("\u{00f7}")],
-                    colors: [darkGray, darkGray,
-                             darkGray, .orange])
+                                       "", String("\u{00f7}")],
+                              colors: [darkGray, darkGray,
+                                       darkGray, .orange])
+                
+                
+                CalculatorRow(labels: ["7", "8", "9", String("\u{00d7}")])
+                
+                CalculatorRow(labels: ["4", "5", "6","-"])
+                
+                CalculatorRow(labels: ["1", "2", "3", "+"])
+                
+                CalculatorRow(labels: ["0", ".", "", "="])
+                
             }
-            
         }
+        
     }
 }
 
