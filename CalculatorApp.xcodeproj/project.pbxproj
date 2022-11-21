@@ -14,6 +14,7 @@
 		D73255562926E30C0091238A /* CalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73255552926E30C0091238A /* CalculatorButton.swift */; };
 		D7325558292701270091238A /* CalculatorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7325557292701270091238A /* CalculatorRow.swift */; };
 		D7DE3387292C29A100F4DC4D /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE3386292C29A100F4DC4D /* Calculator.swift */; };
+		D7DE338A292C2AB300F4DC4D /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE3389292C2AB300F4DC4D /* Operator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		D73255552926E30C0091238A /* CalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
 		D7325557292701270091238A /* CalculatorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorRow.swift; sourceTree = "<group>"; };
 		D7DE3386292C29A100F4DC4D /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		D7DE3389292C2AB300F4DC4D /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				D73255472926E2A60091238A /* CalculatorAppApp.swift */,
+				D7DE3389292C2AB300F4DC4D /* Operator.swift */,
 				D73255492926E2A60091238A /* CalculatorHome.swift */,
 				D7DE3386292C29A100F4DC4D /* Calculator.swift */,
 				D73255552926E30C0091238A /* CalculatorButton.swift */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7325558292701270091238A /* CalculatorRow.swift in Sources */,
+				D7DE338A292C2AB300F4DC4D /* Operator.swift in Sources */,
 				D732554A2926E2A60091238A /* CalculatorHome.swift in Sources */,
 				D73255562926E30C0091238A /* CalculatorButton.swift in Sources */,
 				D7DE3387292C29A100F4DC4D /* Calculator.swift in Sources */,
