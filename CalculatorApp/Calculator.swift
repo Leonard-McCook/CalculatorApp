@@ -9,7 +9,7 @@ import Foundation
 
 class Calculator: ObservableObject {
     
-  // Used to update the UI
+    // Used to update the UI
     @Published var displayValue = "0"
     
     // Store thwe current operator
@@ -26,4 +26,42 @@ class Calculator: ObservableObject {
     
     // How many decimal places have been typed
     var decimalPlace = 0
+    
+    // Selects the appropriate function based on the label of buttom pressed
+    func buttonPressed(label: String) {
+        
+        if label == "CE" {
+            
+        } else if label == "=" {
+            equalsClicked()
+            
+        } else if label == "." {
+            decimalClicked()
+            
+        } else if let value = Double(label) {
+            numberpressed(value: value)
+        } else {
+            operatorPressed(op: Operator())
+        }
+    }
+    
+    func reset() {
+        
+    }
+    
+    func equalsClicked() {
+        
+    }
+    
+    func decimalClicked() {
+        
+    }
+    
+    func numberpressed(value: Double) {
+        
+    }
+    
+    func operatorPressed(op: Operator) {
+        
+    }
 }
