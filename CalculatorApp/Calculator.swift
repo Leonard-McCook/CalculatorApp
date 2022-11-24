@@ -31,6 +31,8 @@ class Calculator: ObservableObject {
     func buttonPressed(label: String) {
         
         if label == "CE" {
+            displayValue = "0"
+            reset()
             
         } else if label == "=" {
             equalsClicked()
@@ -44,9 +46,13 @@ class Calculator: ObservableObject {
             operatorPressed(op: Operator())
         }
     }
-    
+    // Resets the state of the calculator
     func reset() {
-        
+        currentOP = nil
+        currentNumber = 0
+        previousNumber = nil
+        equaled = false
+        decimalPlace = 0
     }
     
     func equalsClicked() {
