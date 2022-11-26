@@ -41,11 +41,27 @@ class Calculator: ObservableObject {
             decimalClicked()
             
         } else if let value = Double(label) {
-            numberpressed(value: value)
+            numberPressed(value: value)
         } else {
             operatorPressed(op: Operator())
         }
     }
+    
+    func setDisplayValue(number: Double) {
+        
+        // Don't display a decimal if the number is an interger
+        if number == floor(number) {
+            displayValue = "\(Int(number))"
+        
+        // Otherwise, display the decimal
+        } else {
+             let decimalPlaces = 10
+             displayValue = "\(round(number * pow(10, decimalPlaces)) / pow(10, decimalPlaces))"
+        }
+        
+    }
+    
+    
     // Resets the state of the calculator
     func reset() {
         currentOP = nil
@@ -63,11 +79,43 @@ class Calculator: ObservableObject {
         
     }
     
-    func numberpressed(value: Double) {
+    func numberPressed(value: Double) {
         
+        // If equals is pressed, clear the current numbers
+        if equaled {
+            currentNumber = nil
+            previousNumber = nil
+            equaled = false
+            
+        }
+        
+        // If theres's no current number, set it to the value
+        if currentNumber == nil {
+            currentNumber = value / pow(10, decimalPlace)
+        
+        // Otherwise, add the value to the current number
+        } else {
+            // If no decimal was typed, add the value as the last digit of the number
+            if decimalPlace == 0 {
+                currentNumber = currentNumber! * 10 + value
+            
+            // Otherwise, add the value as the last decimal of the number
+                
+            } else {
+                currentNumber = currentNumber! + value / pow(10, decimalPlace)
+                decimalPlace += 1
+            }
+        }
+        
+        // Update the UI
+        setDisplayValue(number: currentNumber!)
     }
     
     func operatorPressed(op: Operator) {
         
     }
+}
+
+func pow(_ base: Int, _ exp: Int) -> Double {
+    return pow(Double(base), Double(exp))
 }
