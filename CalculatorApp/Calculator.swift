@@ -13,7 +13,7 @@ class Calculator: ObservableObject {
     @Published var displayValue = "0"
     
     // Store thwe current operator
-    var currentOP: Operator?
+    var currentOp: Operator?
     
     // Cureent number selected
     var currentNumber: Double? = 0
@@ -43,7 +43,7 @@ class Calculator: ObservableObject {
         } else if let value = Double(label) {
             numberPressed(value: value)
         } else {
-            operatorPressed(op: Operator())
+            operatorPressed(op: Operator(label))
         }
     }
     
@@ -64,7 +64,7 @@ class Calculator: ObservableObject {
     
     // Resets the state of the calculator
     func reset() {
-        currentOP = nil
+        currentOp = nil
         currentNumber = 0
         previousNumber = nil
         equaled = false
@@ -113,6 +113,32 @@ class Calculator: ObservableObject {
     
     func operatorPressed(op: Operator) {
         
+        //Reset the decimal
+        decimalPlace = 0
+        
+        // If equals was pressed, reset the current number
+        if equaled {
+            currentNumber = nil
+            equaled = false
+        }
+        
+        // If we have two operands, compute them
+        if currentNumber != nil && previousNumber != nil {
+            let total = currentOp!.op(previousNumber!, currentNumber!)
+            previousNumber = total
+            currentNumber = nil
+            
+            // Update the UI
+            setDisplayValue(number: total)
+            
+            
+        // If only one number has been given, move it to the second operand
+        } else if previousNumber == nil {
+            previousNumber = currentNumber
+            currentNumber = nil
+        }
+        
+        currentOp = op
     }
 }
 
